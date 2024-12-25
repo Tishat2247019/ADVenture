@@ -61,7 +61,7 @@ Businesses (Advertisers):<br>
   </tr>
   <tr>
     <td>MD. SHOHANUR RAHMAN SHOHAN</td>
-    <td>AIUB</td>
+    <td align = "center">AIUB</td>
     <td>Bsc CSE</td>
     <td>22-46013-1</td>
     <td><a href="https://www.github.com/encodeshohan">encodeshohan</a></td>
