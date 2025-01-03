@@ -4,7 +4,7 @@ require_once("../../model/usermodel.php");
 if($_SESSION['status'] == true){
 $idd = $_REQUEST['id'];
 $user_info = user_info($idd);
-$name = $user_info['name'];
+$name = $user_info['username'];
 ?>
 
 <!DOCTYPE html>
@@ -29,12 +29,12 @@ $name = $user_info['name'];
             </div>
             <div class="right">
                 <a href="">Dashboard</a> <br>
-                <a href="../tishat_features/manage_ads/manage_ad.html">Manage ADs</a> <br>
+                <a href="../tishat_features/manage_ads/manage_ad.php?id=<?php echo $idd ?>">Manage ADs</a> <br>
                 <a href="../tishat_features/manage_users/view_users.php?id=<?php echo $idd ?>">View User</a> <br>
-                <a href="../tishat_features/manage_users/manage_users.html">Manage Users</a> <br>
-                <a href="../tishat_features/manage_advertisers/views_advertisers.php?id=<?php echo $idd ?>">View Advertiesers</a> <br>
-                <a href="">Manage ADvertisers</a> <br>
-                <a href="">AD Analytics</a> <br>
+                <a href="../tishat_features/manage_users/manage_users.php?id=<?php echo $idd ?>">Manage Users</a> <br>
+                <a href="../tishat_features/manage_advertisers/view_advertisers.php?id=<?php echo $idd ?>">View Advertiesers</a> <br>
+                <a href="../tishat_features/manage_advertisers/manage_advertisers.php?id=<?php echo $idd ?>">Manage Advertiesers</a> <br>
+                <a href="../tishat_features/ad_analytics/ad_analytics.php?id=<?php echo $idd ?>">Ad Analytics</a> <br>
                 <a href="">System settings</a> <br>
                 <a href="">Flagged Content</a><br>
                 <a href="">Generate Report</a><br>

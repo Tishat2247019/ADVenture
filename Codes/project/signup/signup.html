@@ -15,15 +15,18 @@
                 </div>
             </div>
             <div class="left">
-                <h1>Registration</h1>
+                <div class="left">
+                    <h1>Your journey begins here Register now
+                    </h1>
+                    <h2>
+                        unlock endless possibilities with AD Venture
+                    </h2>
+                </div>
             </div>
             <div class="right">
                 <form action="reg_check.php" method="post">
                     <div class="form_container">
-                        <div class="inputbox">
-                            <input type="number" name="id" id="id" required>
-                            <label for="id">ID</label>
-                        </div>
+                        <h1>SIGN UP</h1>
                         <div class="inputbox">
                             <input type="text" name="name" id="name" required>
                             <label for="name">Name</label>
@@ -43,13 +46,16 @@
                         <div class="inputradiobox">
                             <input type="radio" name="type" value="User"> User
                             <input type="radio" name="type" value="Advertiser"> Advertiser
-                            <input type="radio" name="type" value="Admin"> Admin
                         </div>
 
                         <div class="inputbox">
-                            <input type="submit" name="signup" value="Submit">
+                            <input type="submit" name="signup" value="SUBMIT">
                         </div>
-                        <a href="../signin/signin.html">Sign in?</a>
+                        <div class="inputbox" id="alreadey_account">
+                            <p>Already have an account?</p>
+                            <a href="../signin/signin.html">Sign in</a>
+
+                        </div>
                 </form>
             </div>
         </div>

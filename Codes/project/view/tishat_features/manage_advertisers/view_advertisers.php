@@ -11,15 +11,12 @@
     //     echo "<br>";
     //     print_r($row);
     // }
-    $user_info = user_info($idd);
-     $name = $user_info['username'];
-     $admin_photo = $user_info['profile_pic'];
 ?>
 <html>
 <html>
 <head>
-    <title>View Users Page</title>
-    <link rel="stylesheet" href="view_users.css">
+    <title>View Advertisers Page</title>
+    <link rel="stylesheet" href="view_advertiser.css">
     <link rel="icon" type="image/x-icon" href="../../../asset/images/logo/ad.svg">
 </head>
 <body>
@@ -27,17 +24,17 @@
         <div class="container">
             <div class="header">
                 <div class="page_name">
-                    <img src="../../../asset/images/ad.png" alt="">
-                    <p>View Users Page</p>
+                    <img src="../../../asset/images/advs.png" alt="">
+                    <p>View Advertisers Page</p>
                 </div>
-                <div class="adventure_name">
+                 <div class="adventure_name">
                     <img src="../../../SVG//white_adventure.svg" alt="">
                 </div>
                 <div class="admin_name">
                     <div class="image_container">
-                    <img src="../../../asset/images/profile_pics/<?php echo $admin_photo; ?>" alt="" height="40px"> 
+                        <img src="../../../asset/images/TOWSIF_PIC.jpg" alt="">
                     </div>
-                    <p>Hello, <?php echo $name   ?></p>
+                    <p>Hello Admin</p>
                 </div>
             </div>
             <div class="left">
@@ -51,7 +48,7 @@
                     </div>
                     <div>
                         <img src="../../../asset/images/ad.png" alt="">
-                        <a href="../manage_ads/manage_ad.php?id=<?php echo $idd ?>">Manage ADs</a>
+                        <button>Manage ADs</button>
                     </div>
                     <div>
                         <img src="../../../asset/images/users.png" alt="">
@@ -59,16 +56,17 @@
                     </div>
                     <div>
                         <img src="../../../asset/images/manage_users.png" alt="">
-                        <a href="./manage_users.php?id=<?php echo $idd ?>">Manage Users</a>
+                        <button>Manage Users</button>
                     </div>
                     <div>
                         <img src="../../../asset/images/advs.png" alt="">
-                        <a href="../manage_advertisers/view_advertisers.php?id=<?php echo $idd ?>">View Advertiesers</a>
+                        <button>View Advertiesers</button>
 
                     </div>
                     <div>
                         <img src="../../../asset/images/manage_advs.png" alt="">
-                        <a href="../manage_advertisers/manage_advertisers.php?id=<?php echo $idd ?>">Manage Advertiesers</a>
+                        <button>Manage ADvertisers</button>
+
                     </div>
                     <div>
                         <img src="../../../asset/images/analytics.png" alt="">
@@ -103,11 +101,11 @@
             
             <div class="middle">
                 <form action="">
-                    <div class="user_manage_contatiner">
+                    <div class="advs_manage_contatiner">
                         <div class="search_container">
-                            <div class="search_user_container">
+                            <div class="search_advs_container">
                                 <img src="../../../asset/images/search.png" alt="">
-                                <p>Search User</p>
+                                <rtiser>Search Advertisers</p>
                             </div>
                             <div class="search_input_container">
                                 <input type="text">
@@ -115,7 +113,22 @@
                             </div>
                         </div>
 
-                        <div class="user_status_container">
+                       
+                        <div class="filter_container">
+                            <div class="filter_advs_container">
+                                <img src="../../../asset/images/filter_user.png" alt="">
+                                <p>Filter Advertisers by category</p>
+                            </div>
+                            <div class="filter_options_container">
+                                <select name="" id="">
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Technology">Technolgy</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="advs_status_container">
                            
                                 <button>
                                     <a href="">Active Users</a>
@@ -127,14 +140,6 @@
                                 </button>
                            
                         </div>
-
-                        <div class="user_activity_container">
-                        <button> 
-                            <a href="">User Activity History</a>
-                         </button>
-
-                        </div>
-
                         <div class="manupulate_container">
                         
                             <button>
@@ -149,51 +154,46 @@
                             </a> </button>
                             
                         </div>
+
                     </div>
                 </form>
             </div>
             <div class="right">
                 <div class='all_user_container'>
-                <div class="table_container">
-                <table  cellspacing="0"  class="user_table">
-                <tr  align="center">
+                <table border=1 cellspacing="0" align="center" width="50%">
+            <tr align="center">
                 <th>ID</th>
-                <th>Profile Pic</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>User Type</th>
-                <th>Status</th>
                 <th colspan="2">Action</th>
                 
             </tr>
             <?php 
                  while($row = mysqli_fetch_assoc($result)){
-                 if($row['type'] == 'User'){
+                 if($row['type'] == 'Advertiser'){
                 //echo "<br>";
                 //print_r($row);
                 // }
             ?>
             <tr align="center">
-                <td><?php echo $row['user_id']; ?></td>
-                <td><img src="../../../asset/images/profile_pics/<?php echo $row['profile_pic']; ?>" alt="" > </td>
+                <td><?php echo $row['id']; ?></td>
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['type']; ?></td>
-                <td><button id="status-<?php echo $row['status']; ?>"><?php echo $row['status']; ?></button></td>
-                <td>    
+                <td>
                     <button>
-                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> EDIT </a> 
+                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> EDIT </a> 
                     </button>
                 </td>
                 <td>
                     <button>
-                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> DELETE </a> 
+                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> DELETE </a> 
                     </button>
                 </td>
                 <?php }} ?>
             </tr>
                 </table>
-                </div>
                 </div>
             </div>
             <div class="footer"></div>

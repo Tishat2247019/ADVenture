@@ -4,7 +4,7 @@ require_once("../../model/usermodel.php");
 if($_SESSION['status'] == true){
 $idd = $_REQUEST['id'];
 $user_info = user_info($idd);
-$name = $user_info['name'];
+$name = $user_info['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

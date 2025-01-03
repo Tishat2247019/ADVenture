@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2024 at 10:32 AM
+-- Generation Time: Jan 03, 2025 at 12:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,22 +28,54 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `profile_pic` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `password` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL
+  `type` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`name`, `password`, `id`, `email`, `type`) VALUES
-('towsif', '1234', 2, 'towsif@gmail.com', 'User'),
-('admin', '110918', 1, 'adming@gmail.com', 'Admin'),
-('advertiser', '12345', 3, 'towsif@gmail.com', 'Advertiser'),
-('opi', '1103', 7, 'opi@gmail.com', 'Admin');
+INSERT INTO `users` (`username`, `profile_pic`, `password`, `user_id`, `email`, `type`, `status`) VALUES
+('admin', 'profile_pic5.png', '110918', 1, 'towsif1528@gmail.com', 'Admin', ''),
+('opi', 'opi_pic.jpg', '110918', 5, 'opi@gmail.com', 'User', 'Active'),
+('shohan', 'profile_pic2.png', '123', 6, 'shohan@gmail.com', 'User', 'Inactive'),
+('Tishat', '', '1234', 7, 'tishattawsif@gmail.com', 'Admin', ''),
+('rafiul', 'profile_pic3.png', '12345678', 9, 'rafiul@gmail.com', 'User', 'Active'),
+('Md. Samim', 'profile_pic4.png\r\n', '12', 10, 'asdf@dsf', 'User', 'Active'),
+('rafiul hassan', 'profile_pic1.png', '123456', 11, 'rafiul@gmail.com', 'Advertiser', ''),
+('tawsif', '', '1234', 12, 'tawsif@gmail.com', 'Admin', ''),
+('farjana', 'opi_pic.jpg', '1103', 13, 'farjan@gmail.com', 'Advertiser', 'Active'),
+('Towsif', 'towsif_pic.jpg', '11', 15, 'towsif1528@gmail.com', 'User', 'Active'),
+('tishatt', 'profile_pic1.png', '12', 16, 'tishat@gmail.com', 'User', 'Inactive'),
+('advertiser1', 'profile_pic2.png', '12345', 17, 'advertiser1@gmail.com', 'Advertiser', 'Inactive'),
+('advertiser2', 'profile_pic5.png', '12345', 18, 'advertiser2@gmail.com', 'Advertiser', 'Active'),
+('advertiser3', 'profile_pic3.png', '12345', 19, 'advertiser3@gmail.com', 'Advertiser', 'Active');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

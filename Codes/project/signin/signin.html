@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signin.css">
-    <title>Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="../asset/images/logo/ad.svg">
+    <title>Sign In Page</title>
 </head>
 <body>
     <div class="main_container">
@@ -15,24 +16,36 @@
                 </div>
             </div>
             <div class="left">
-                <h1>Log In</h1>
+                <h1>Unlock endless opportunities
+                </h1>
+                <h2>
+                    Log in and explore the world of AD Venture.
+                </h2>
             </div>
             <div class="right">
                 <form action="signin_check.php" method="post">
                     <div class="form_container">
+                        <h1>SIGN IN</h1>
                         <div class="inputbox">
-                            <input type="number" name="id" id="id" required>
-                            <label for="name">ID</label>
+                            <input type="text" name="username" id="username" required>
+                            <label for="name">User Name</label>
                         </div>
                         <div class="inputbox">
                             <input type="password" name="password" id="password" required>
                             <label for="password">Password</label>
                         </div>
                         <div class="inputbox">
-                            <input type="submit" name="login" value="Submit">
+                            <input type="submit" name="login" value="SUBMIT">
                         </div>
-                        <a href="../signup/signup.html"> sign Up</a>
-                        <a href="forgot_password.html"> Forgot Password?</a>
+
+                        <div class="inputbox" id="signup_forgot_pass_container">
+                            <div class="new_user_container">
+                                <p>New User?</p>
+                                <a href="../signup/signup.html"> sign Up</a>
+                            </div>
+                            <a href="forgot_password.html"> Forgot Password?</a>
+                        </div>
+
                 </form>
             </div>
         </div>

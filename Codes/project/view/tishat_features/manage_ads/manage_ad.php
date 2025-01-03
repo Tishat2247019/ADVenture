@@ -2,8 +2,7 @@
     session_start();
     require_once("../../../model/usermodel.php");
     if(!isset($_SESSION['status'])){
-        header('location: ../../../signin/signin.html'); 
-
+        header('location: login.html'); 
     }
     $idd = $_REQUEST['id'];
     $result = show_users();
@@ -12,14 +11,12 @@
     //     print_r($row);
     // }
     $user_info = user_info($idd);
-     $name = $user_info['username'];
-     $admin_photo = $user_info['profile_pic'];
+    $name = $user_info['username'];
 ?>
 <html>
-<html>
 <head>
-    <title>View Users Page</title>
-    <link rel="stylesheet" href="view_users.css">
+    <title>Manage Ad Page</title>
+    <link rel="stylesheet" href="manage_ad.css">
     <link rel="icon" type="image/x-icon" href="../../../asset/images/logo/ad.svg">
 </head>
 <body>
@@ -28,16 +25,16 @@
             <div class="header">
                 <div class="page_name">
                     <img src="../../../asset/images/ad.png" alt="">
-                    <p>View Users Page</p>
+                    <p>Mange ADs Page</p>
                 </div>
                 <div class="adventure_name">
                     <img src="../../../SVG//white_adventure.svg" alt="">
                 </div>
                 <div class="admin_name">
                     <div class="image_container">
-                    <img src="../../../asset/images/profile_pics/<?php echo $admin_photo; ?>" alt="" height="40px"> 
+                        <img src="../../../asset/images/TOWSIF_PIC.jpg" alt="">
                     </div>
-                    <p>Hello, <?php echo $name   ?></p>
+                    <p>Hello, <?php echo $name ?></p>
                 </div>
             </div>
             <div class="left">
@@ -51,7 +48,7 @@
                     </div>
                     <div>
                         <img src="../../../asset/images/ad.png" alt="">
-                        <a href="../manage_ads/manage_ad.php?id=<?php echo $idd ?>">Manage ADs</a>
+                        <button>Manage ADs</button>
                     </div>
                     <div>
                         <img src="../../../asset/images/users.png" alt="">
@@ -59,16 +56,17 @@
                     </div>
                     <div>
                         <img src="../../../asset/images/manage_users.png" alt="">
-                        <a href="./manage_users.php?id=<?php echo $idd ?>">Manage Users</a>
+                        <button>Manage Users</button>
                     </div>
                     <div>
                         <img src="../../../asset/images/advs.png" alt="">
-                        <a href="../manage_advertisers/view_advertisers.php?id=<?php echo $idd ?>">View Advertiesers</a>
+                        <button>View Advertiesers</button>
 
                     </div>
                     <div>
                         <img src="../../../asset/images/manage_advs.png" alt="">
-                        <a href="../manage_advertisers/manage_advertisers.php?id=<?php echo $idd ?>">Manage Advertiesers</a>
+                        <button>Manage ADvertisers</button>
+
                     </div>
                     <div>
                         <img src="../../../asset/images/analytics.png" alt="">
@@ -92,109 +90,78 @@
                     <div>
                         <img src="../../../asset/images/change_pass.png" alt="">
                         <button>Change Password </button>
-
                     </div>
+
                     <div class="go_back">
                         <a href="../../dashboard/admin_menu.php?id=<?php echo $idd ?>"> <button>
                         <img src="../../../asset/images/back.png" alt=""></button>Go Back</a> 
                     </div>
+
                 </div>
             </div>
-            
+            <div class="right">
+            </div>
             <div class="middle">
                 <form action="">
-                    <div class="user_manage_contatiner">
+                    <div class="ad_manage_contatiner">
                         <div class="search_container">
-                            <div class="search_user_container">
+                            <div class="search_ad_container">
                                 <img src="../../../asset/images/search.png" alt="">
-                                <p>Search User</p>
+                                <p>Search AD</p>
                             </div>
                             <div class="search_input_container">
                                 <input type="text">
                                 <button>search</button>
                             </div>
+
                         </div>
 
-                        <div class="user_status_container">
-                           
+                        <div class="filter_container">
+                            <div class="filter_ad_container">
+                                <img src="../../../asset/images/filter_ad.png" alt="">
+                                <p>Filter AD by category</p>
+                            </div>
+                            <div class="filter_options_container">
+                                <select name="" id="">
+                                    <option value="Technology">Technology</option>
+                                    <option value="Technology">Education</option>
+                                    <option value="Technology">Corporate</option>
+                                    <option value="Technology">Science</option>
+                                    <option value="Technology">Nature</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="pending_container">
+                            <div class="pending_ad_container">
+                                <img src="../../../asset/images/pending_ads.png" alt="">
+                            </div>
+                            <div class="pending_ad_view">
                                 <button>
-                                    <a href="">Active Users</a>
+                                    <a href="">View Pending ADs</a><br>
                                 </button>
-                          
-                            
+                            </div>
+                        </div>
+                        <div class="statistics_container">
+                            <div class="statistics_ad_container">
+                                <img src="../../../asset/images/statistics.png" alt="">
+                            </div>
+                            <div class="statistics_ad_view">
                                 <button>
-                                    <a href="">Inactive Users</a>
+                                    <a href="">View ADs Stastics </a><br>
                                 </button>
-                           
+                            </div>
                         </div>
 
-                        <div class="user_activity_container">
-                        <button> 
-                            <a href="">User Activity History</a>
-                         </button>
-
+                        <div class="manupulate_ad_container">
+                            <button>Approve ADs</button><br>
+                            <button>Edit AD Details </button><br>
                         </div>
-
-                        <div class="manupulate_container">
-                        
-                            <button>
-                                <a href="">
-                                Manage Status
-                                </a>
-                            </button>
-                            
-                            <button>
-                            <a href="">
-                            Edit Information
-                            </a> </button>
-                            
+                        <div class="delete_ad_container">
+                            <button>Delete AD</button>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="right">
-                <div class='all_user_container'>
-                <div class="table_container">
-                <table  cellspacing="0"  class="user_table">
-                <tr  align="center">
-                <th>ID</th>
-                <th>Profile Pic</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>User Type</th>
-                <th>Status</th>
-                <th colspan="2">Action</th>
-                
-            </tr>
-            <?php 
-                 while($row = mysqli_fetch_assoc($result)){
-                 if($row['type'] == 'User'){
-                //echo "<br>";
-                //print_r($row);
-                // }
-            ?>
-            <tr align="center">
-                <td><?php echo $row['user_id']; ?></td>
-                <td><img src="../../../asset/images/profile_pics/<?php echo $row['profile_pic']; ?>" alt="" > </td>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['email']; ?></td>
-                <td><?php echo $row['type']; ?></td>
-                <td><button id="status-<?php echo $row['status']; ?>"><?php echo $row['status']; ?></button></td>
-                <td>    
-                    <button>
-                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> EDIT </a> 
-                    </button>
-                </td>
-                <td>
-                    <button>
-                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> DELETE </a> 
-                    </button>
-                </td>
-                <?php }} ?>
-            </tr>
-                </table>
-                </div>
-                </div>
             </div>
             <div class="footer"></div>
         </div>

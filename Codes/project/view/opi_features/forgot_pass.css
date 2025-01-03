@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(180, 58, 58);
+    background: linear-gradient(90deg, rgba(180, 58, 58, 0.6) 0%, rgba(253, 70, 29, 0.6) 46%, rgba(252, 176, 69, 0.6) 100%);
+}
+
+.main_container {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: #007ACC;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+.logo_container img {
+    max-width: 100%;
+}
+
+.container {
+    padding: 2rem;
+}
+
+.left {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.left h1 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputbox {
+    position: relative;
+}
+
+.inputbox input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background: #f9f9f9;
+}
+
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.inputbox input:focus+label,
+.inputbox input:not(:placeholder-shown):not([type="submit"])+label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.75rem;
+    color: #007ACC;
+}
+
+.inputbox input[type="submit"] {
+    background: #007ACC;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.inputbox input[type="submit"]:hover {
+    background: #005F9E;
+}

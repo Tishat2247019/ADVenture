@@ -12,32 +12,32 @@
     //     print_r($row);
     // }
     $user_info = user_info($idd);
-     $name = $user_info['username'];
-     $admin_photo = $user_info['profile_pic'];
+    $name = $user_info['username'];
 ?>
 <html>
 <html>
 <head>
-    <title>View Users Page</title>
-    <link rel="stylesheet" href="view_users.css">
+    <title>Manage Users Page</title>
+    <link rel="stylesheet" href="manage_users.css">
     <link rel="icon" type="image/x-icon" href="../../../asset/images/logo/ad.svg">
+    <script src="../../../asset/js/manage_users.js"></script>
 </head>
 <body>
     <div class="main_container">
         <div class="container">
             <div class="header">
                 <div class="page_name">
-                    <img src="../../../asset/images/ad.png" alt="">
-                    <p>View Users Page</p>
+                    <img src="../../../asset/images/manage_users.png" alt="">
+                    <p>Manage Users Page</p>
                 </div>
                 <div class="adventure_name">
                     <img src="../../../SVG//white_adventure.svg" alt="">
                 </div>
                 <div class="admin_name">
                     <div class="image_container">
-                    <img src="../../../asset/images/profile_pics/<?php echo $admin_photo; ?>" alt="" height="40px"> 
+                        <img src="../../../asset/images/TOWSIF_PIC.jpg" alt="">
                     </div>
-                    <p>Hello, <?php echo $name   ?></p>
+                    <p>Hello , <?php echo $name ?></p>
                 </div>
             </div>
             <div class="left">
@@ -51,7 +51,7 @@
                     </div>
                     <div>
                         <img src="../../../asset/images/ad.png" alt="">
-                        <a href="../manage_ads/manage_ad.php?id=<?php echo $idd ?>">Manage ADs</a>
+                        <button>Manage ADs</button>
                     </div>
                     <div>
                         <img src="../../../asset/images/users.png" alt="">
@@ -59,16 +59,17 @@
                     </div>
                     <div>
                         <img src="../../../asset/images/manage_users.png" alt="">
-                        <a href="./manage_users.php?id=<?php echo $idd ?>">Manage Users</a>
+                        <button>Manage Users</button>
                     </div>
                     <div>
                         <img src="../../../asset/images/advs.png" alt="">
-                        <a href="../manage_advertisers/view_advertisers.php?id=<?php echo $idd ?>">View Advertiesers</a>
+                        <button>View Advertiesers</button>
 
                     </div>
                     <div>
                         <img src="../../../asset/images/manage_advs.png" alt="">
-                        <a href="../manage_advertisers/manage_advertisers.php?id=<?php echo $idd ?>">Manage Advertiesers</a>
+                        <button>Manage ADvertisers</button>
+
                     </div>
                     <div>
                         <img src="../../../asset/images/analytics.png" alt="">
@@ -115,45 +116,52 @@
                             </div>
                         </div>
 
-                        <div class="user_status_container">
-                           
-                                <button>
-                                    <a href="">Active Users</a>
-                                </button>
-                          
-                            
-                                <button>
-                                    <a href="">Inactive Users</a>
-                                </button>
-                           
+                       
+                        <div class="filter_container">
+                            <div class="filter_user_container">
+                                <img src="../../../asset/images/filter_user.png" alt="">
+                                <p>Filter Users by category</p>
+                            </div>
+                            <div class="filter_options_container">
+                                <select name="" id="">
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="user_activity_container">
-                        <button> 
-                            <a href="">User Activity History</a>
-                         </button>
-
+                        <div class="role_container">
+                            <div class="change_role_container">
+                                <img src="../../../asset/images/change_role.png" alt="">
+                                <p>Change Role</p>
+                            </div>
+                            <div class="role_options_container">
+                            <select name="" id="">
+                                <option value="User">User</option>
+                                <option value="Advertiser">Advertiser</option>
+                            </select>
+                            </div>
                         </div>
 
                         <div class="manupulate_container">
                         
                             <button>
                                 <a href="">
-                                Manage Status
+                                Edit Information
                                 </a>
                             </button>
                             
                             <button>
                             <a href="">
-                            Edit Information
+                            Delete Account
                             </a> </button>
-                            
                         </div>
                     </div>
                 </form>
             </div>
             <div class="right">
                 <div class='all_user_container'>
+
                 <div class="table_container">
                 <table  cellspacing="0"  class="user_table">
                 <tr  align="center">
@@ -194,6 +202,7 @@
             </tr>
                 </table>
                 </div>
+                
                 </div>
             </div>
             <div class="footer"></div>

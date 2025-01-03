@@ -13,11 +13,6 @@
   box-sizing: border-box;
   font-family: CustomFont2;
 }
-a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-}
 
 .container {
   height: 100vh;
@@ -31,12 +26,6 @@ a {
     "left_area footer_area footer_area";
   grid-template-rows: 4vw 1fr 4vw;
   grid-template-columns: 0.25fr 0.5fr 1fr;
-  background: linear-gradient(
-    245.59deg,
-    #4d9559 0%,
-    #3d703d 28.53%,
-    #133917 75.52%
-  );
 }
 
 .header {
@@ -46,21 +35,22 @@ a {
   align-items: center;
   /* margin: 0px 50px; */
   /* background-color: rgb(207, 139, 82); */
+  background-color: #e38747;
 }
 
 .page_name {
-  width: 13%;
+  width: 20%;
   height: 80%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   /* border: 1px solid black; */
   font-family: CustomFont2;
   color: white;
   font-size: 22px;
 }
 .page_name img {
-  width: 15%;
+  width: 10%;
   height: auto;
 }
 
@@ -107,6 +97,7 @@ a {
 .left {
   grid-area: left_area;
   /* background-color: rgb(207, 139, 82); */
+  background-color: #e38747;
 }
 .logo_cotainer {
   height: 10vh;
@@ -134,12 +125,22 @@ a {
 
 .admin_menu_container div {
   height: 4%;
-  width: 100%;
+  width: 95%;
   /* border: 1px solid black; */
   display: flex;
   justify-content: left;
   align-items: center;
   gap: 30px;
+}
+
+.admin_menu_container div img {
+  height: 80%;
+  cursor: pointer;
+  width: auto;
+  margin-left: 20px;
+}
+.admin_menu_container div:hover {
+  border: 1px solid white;
 }
 .admin_menu_container div button {
   border: none;
@@ -155,6 +156,10 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.admin_menu_container .go_back:hover {
+  border: 0px;
 }
 .admin_menu_container .go_back a {
   display: flex;
@@ -178,21 +183,16 @@ a {
   transform: translateX(-15px);
 }
 /* .admin_menu_container div:hover img {
-  transform: translateX(-15px);
-} */
-
-.admin_menu_container div img {
-  height: 80%;
-  cursor: pointer;
-  width: auto;
-  margin-left: 20px;
-}
+    transform: translateX(-15px);
+  } */
 
 .middle {
   grid-area: middle_area;
   position: relative;
   /* overflow-y: scroll; */
-  background-color: rgb(229, 223, 223);
+  /* background-color: rgb(229, 223, 223); */
+  background-color: #f2f0f0;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,9 +205,10 @@ a {
   display: flex;
   align-items: center;
   justify-content: left;
-  background-color: rgb(229, 223, 223);
+  /* background-color: rgb(229, 223, 223); */
+  background-color: #f2f0f0;
 }
-.middle form .user_manage_contatiner {
+.middle form .ad_analytic_contatiner {
   /* border: 1px solid black; */
   height: 80%;
   width: 100%;
@@ -217,9 +218,10 @@ a {
   justify-content: center;
   align-items: center;
   gap: 15px;
+  border-radius: 10px;
 }
 
-.middle form .user_manage_contatiner > div {
+.middle form .ad_analytic_contatiner > div {
   width: 80%;
   /* border: 1px solid black; */
   height: 10%;
@@ -228,18 +230,18 @@ a {
   font-weight: bold;
   /* border-radius: 5px; */
 }
-.middle form .user_manage_contatiner .search_container {
+.middle form .ad_analytic_contatiner .search_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
 }
-.search_user_container {
+.search_ad_container {
   height: 100%;
   width: 30%;
   /* background-color: yellow; */
 }
-.search_user_container img {
+.search_ad_container img {
   height: 60%;
 }
 
@@ -256,6 +258,11 @@ a {
   border: none;
   padding: 0px 5px;
 }
+
+/* .search_input_container input:focus {
+    border: 3px solid yellow;
+  } */
+
 .search_input_container button {
   height: 60%;
   width: 50px;
@@ -263,75 +270,76 @@ a {
   border: none;
   cursor: pointer;
 }
-.middle form .user_status_container {
+
+.middle form .ad_analytic_contatiner .filter_range_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
-  /* padding: 5px 20px; */
+  padding: 5px 20px;
 }
-
-.user_status_container button {
+.filter_ad_range_container {
   height: 100%;
-  width: 45%;
-  border: none;
-  background-color: rgb(207, 139, 82);
-  cursor: pointer;
+  width: 60%;
 }
-.user_status_container button a {
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
+.filter_ad_range_container img {
+  height: 30px;
+  /* border: 1px solid black; */
 }
 
-.user_activity_container {
+.filter_options_range_container {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.user_activity_container button {
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  background-color: rgb(207, 139, 82);
-  border: none;
+  gap: 10px;
 }
 
-.user_activity_container button a {
-  text-decoration: none;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
+.filter_options_range_container input {
+  background-color: white;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
   color: black;
+  cursor: pointer;
 }
 
-.middle form .manupulate_container {
+.middle form .ad_analytic_contatiner .filter_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
-  /* padding: 5px 20px; */
+  padding: 5px 20px;
+}
+.filter_ad_container {
+  height: 100%;
+  width: 60%;
+}
+.filter_ad_container img {
+  height: 30px;
+  /* border: 1px solid black; */
 }
 
-.manupulate_container button {
+.filter_options_container {
   height: 100%;
-  width: 45%;
-  border: none;
-  background-color: rgb(207, 139, 82);
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
-.manupulate_container button a {
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
+
+.filter_options_container select {
+  background-color: white;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
   color: black;
+  cursor: pointer;
 }
 
 .right {
   grid-area: right_area;
-  background-color: rgb(229, 223, 223);
+  background-color: #f2f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,85 +351,26 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
 }
-
-.right .all_user_container .table_container {
+.right .all_user_container table {
   width: 80%;
-  height: 60%;
-  overflow-y: scroll;
-  /* background-color: red; */
-  display: flex;
-  align-items: start;
-  justify-content: center;
+}
+.right .all_user_container table th {
+  background-color: rgb(207, 139, 82);
+}
+.right .all_user_container table tr {
+  height: 30px;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  /* height: 1px; */
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: rgb(255, 255, 255);
-  /* margin-top: 50px; */
-  /* margin-bottom: 100px; */
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #3d703d;
-  border-radius: 0px;
-}
-.user_table {
-  width: 100%;
-  /* border: 5px solid black; */
-  /* display: inline-block; */
-  /* position: absolute;
-  top: 10;
-  right: 10; */
-  border-radius: 100px;
-}
-.right .all_user_container .table_container table th {
-  /* background-color: rgb(180, 180, 180); */
-  /* background-color: rgb(207, 139, 82); */
-  background-color: #3d703d;
-  /* position: -webkit-sticky; */
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  height: 10px;
-  /* background: #fff; */
-}
-
-.right .all_user_container .table_container table tr {
-  height: 90px;
-  cursor: pointer;
-}
-/* .right .all_user_container .table_container table tr:hover {
-  background-color: red;
-} */
-.right .all_user_container .table_container table tr:nth-child(1) {
-  height: 45px;
-}
-.right .all_user_container .table_container table tr:nth-child(odd) {
-  /* background-color: #b4b4b4; */
-  background-color: #e6e6e6;
-  color: black;
-}
-.right .all_user_container .table_container table td button {
+.right .all_user_container table td button {
   height: 80%;
   width: 80%;
   background-color: rgb(207, 139, 82);
   border: none;
   cursor: pointer;
 }
-
-.right .all_user_container .table_container table td img {
-  border-radius: 7px;
-  height: 75px;
-  width: auto;
-}
-.right .all_user_container .table_container table td button a {
+.right .all_user_container table td button a {
   text-decoration: none;
   color: black;
   font-size: 12px;
@@ -429,19 +378,6 @@ a {
   height: 100%;
 }
 
-#status-Active {
-  background-color: 3d703d;
-  padding: 5px 7px;
-  border-radius: 3px;
-  font-weight: bold;
-}
-
-#status-Inactive {
-  background-color: rgb(189, 12, 12);
-  padding: 5px 7px;
-  border-radius: 3px;
-  font-weight: bold;
-}
 .footer {
   grid-area: footer_area;
   position: fixed;

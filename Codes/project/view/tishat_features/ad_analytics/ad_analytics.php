@@ -1,8 +1,23 @@
+<?php
+    session_start();
+    require_once("../../../model/usermodel.php");
+    if(!isset($_SESSION['status'])){
+        header('location: login.html'); 
+    }
+    $idd = $_REQUEST['id'];
+    $result = show_users();
+      // while($row = mysqli_fetch_assoc($result)){
+    //     echo "<br>";
+    //     print_r($row);
+    // }
+    $user_info = user_info($idd);
+    $name = $user_info['username'];
+?>
 <html>
 <html>
 <head>
-    <title>Manage Ad Page</title>
-    <link rel="stylesheet" href="manage_ad.css">
+    <title>AD Analytics Page</title>
+    <link rel="stylesheet" href="ad_analytic.css">
     <link rel="icon" type="image/x-icon" href="../../../asset/images/logo/ad.svg">
 </head>
 <body>
@@ -10,17 +25,23 @@
         <div class="container">
             <div class="header">
                 <div class="page_name">
-                    <img src="../../../asset/images/ad.png" alt="">
-                    <p>Mange ADs Page</p>
+                    <img src="../../../asset/images/analytics.png" alt="">
+                    <p>AD Analytics Page</p>
+                </div>
+
+                <div class="adventure_name">
+                    <img src="../../../SVG//white_adventure.svg" alt="">
                 </div>
                 <div class="admin_name">
-                    <p>Hello Admin</p>
+                    <div class="image_container">
+                        <img src="../../../asset/images/TOWSIF_PIC.jpg" alt="">
+                    </div>
+                    <p>Hello , <?php echo $name ?></p>
                 </div>
             </div>
             <div class="left">
                 <div class="logo_cotainer">
-                    <img src="../../../SVG/ad.svg" alt="">
-                    <img src="../../../SVG//adventure.svg" alt="">
+                    <img src="../../../SVG/white_ad.svg" alt="">
                 </div>
                 <div class="admin_menu_container">
                     <div>
@@ -73,14 +94,16 @@
                         <button>Change Password </button>
 
                     </div>
-
+                    <div class="go_back">
+                        <a href="../../dashboard/admin_menu.php?id=<?php echo $idd ?>"> <button>
+                        <img src="../../../asset/images/back.png" alt=""></button>Go Back</a> 
+                    </div>
                 </div>
             </div>
-            <div class="right">
-            </div>
+            
             <div class="middle">
                 <form action="">
-                    <div class="ad_manage_contatiner">
+                    <div class="ad_analytic_contatiner">
                         <div class="search_container">
                             <div class="search_ad_container">
                                 <img src="../../../asset/images/search.png" alt="">
@@ -90,7 +113,16 @@
                                 <input type="text">
                                 <button>search</button>
                             </div>
+                        </div>
 
+                        <div class="filter_range_container">
+                            <div class="filter_ad_range_container">
+                                <img src="../../../asset/images/range.png" alt="">
+                                <p>Filter Ads by range</p>
+                            </div>
+                            <div class="filter_options_range_container">
+                                <input type="range">
+                            </div>
                         </div>
 
                         <div class="filter_container">
@@ -109,28 +141,46 @@
                             </div>
                         </div>
 
-                        <div class="pending_container">
-                            <div class="pending_ad_container">
-                                <img src="../../../asset/images/pending_ads.png" alt="">
-                            </div>
-                            <div class="pending_ad_view">
-                                <a href="">View Pending ADs</a><br>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="">View ADs Stastics </a><br>
-                        </div>
-                        <div>
-                            <button>Approve ADs</button><br>
-                        </div>
-                        <div>
-                            <button>Edit AD Details </button><br>
-                        </div>
-                        <div>
-                            <button>Delete AD</button>
-                        </div>
                     </div>
                 </form>
+            </div>
+            <div class="right">
+                <div class='all_user_container'>
+                <table border=1 cellspacing="0" align="center" width="50%">
+            <tr align="center">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>User Type</th>
+                <th colspan="2">Action</th>
+                
+            </tr>
+            <?php 
+                 while($row = mysqli_fetch_assoc($result)){
+                 if($row['type'] == 'User'){
+                //echo "<br>";
+                //print_r($row);
+                // }
+            ?>
+            <tr align="center">
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['username']; ?></td>
+                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['type']; ?></td>
+                <td>
+                    <button>
+                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> EDIT </a> 
+                    </button>
+                </td>
+                <td>
+                    <button>
+                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> DELETE </a> 
+                    </button>
+                </td>
+                <?php }} ?>
+            </tr>
+                </table>
+                </div>
             </div>
             <div class="footer"></div>
         </div>

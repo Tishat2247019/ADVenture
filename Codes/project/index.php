@@ -1,9 +1,16 @@
-<html>
+<?php
+        $db = mysqli_connect("localhost", "root", "", "check");
+        $query = " select * from ads ";
+        $result = mysqli_query($db, $query);
+
+?>
+
 <html>
 <head>
     <title>Home page</title>
     <link rel="stylesheet" href="./asset/css/home.css">
     <!-- <link rel="icon" type="image/x-icon" href="../../SVG/ad.svg"> -->
+    <link rel="icon" type="image/x-icon" href="./asset/images/logo/ad.svg">
 
 </head>
 <body>
@@ -31,25 +38,64 @@
         <div class="container">
             <div class="header">
                 <div class="logo_left">
-                    <div class="logo">
-                        <img src="./SVG/ad.svg" alt="" height="30px">
+                    <div class="ad">
+                        <img src="./SVG/ad.svg" alt="">
                     </div>
-                    <img src="./SVG/adventure.svg" alt="" height="70px">
+                    <div class="adventure">
+                        <img src="./SVG/adventure.svg" alt="">
+                    </div>
                 </div>
+
+
                 <div class="buttons_header">
-                    <button><a href="./signup/signup.html">Sign Up</a></button>
-                    <button><a href="./signin/signin.html">Sign In</a></button>
+                    <a href="./signup/signup.html">
+                        <button>SIGN UP</button>
+                    </a>
+                    <a href="./signin/signin.html">
+                        <button>SIGN IN</button>
+                    </a>
                 </div>
             </div>
-            <div class="left"></div>
+            <div class="left">
+                <div class="left_container">
+                    <h1 class="creativity">Unleash <span>Creativity</span></h1>
+                    <h1 class="connect">Connect, Engage, and Grow with <span>personalized advertising</span></h1>
+                </div>
+            </div>
             <div class="right"></div>
             <div class="middle">
-                <section>add1</section>
-                <section>add2</section>
-                <section>add3</section>
-                <section>add4</section>
-                <section>add5</section>
-                <section>add6</section>
+                <?php    while ($data = mysqli_fetch_assoc($result)) {
+                    $id = $data['user_id'];
+                     $sql = "select * from users where user_id = '$id'";
+                     $result1 = mysqli_query($db, $sql);
+                     // var_dump($result);
+                     $row = mysqli_fetch_assoc($result1);
+                      ?>
+                <div class="post">
+                    <div class="adv_info_container">
+                        <img src="./asset/images/profile_pics/<?php echo $row['profile_pic']; ?>" alt="">
+                        <p><?php echo $row['username'] ?></p>
+                    </div>
+                    <div class="image_container">
+                        <img src="./asset/images/ad_pics/<?php echo $data['ad_photo']; ?>" alt="">
+                        <div class="price">
+                            <p>Tk. <?php echo $data['price'] ?></p>
+                        </div>
+                    </div>
+                    <div class="text_container">
+                        <h1>AD Title</h1>
+                        <p><?php echo $data['ad_title']  ?></p>
+                        <h1>AD Description</h1>
+                        <p><?php echo $data['ad_description']  ?></p>
+                        <h1> Contact Information
+                        </h1>
+                        <p>Email:<?php echo $data['email']  ?></p>
+                        <p>Phone:<?php echo $data['phone']  ?></p>
+                    </div>
+                </div>
+                <?php
+                }
+                ?>
             </div>
             <div class="footer"></div>
         </div>

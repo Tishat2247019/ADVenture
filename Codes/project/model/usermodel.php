@@ -6,13 +6,13 @@ function getConnection(){
 }
 
 
-function login($id, $password){
+function login($username, $password){
     $conn = getConnection();
-    $sql = "select * from users where id = '{$id}' and password = '{$password}'";
+    $sql = "select * from users where username = '{$username}' and password = '{$password}'";
     $result = mysqli_query($conn,$sql);
     $user = mysqli_fetch_assoc($result);
     if(isset($user['type'])){
-        return $user['type'];
+        return $user;
     }
     else{
     return false;
@@ -27,9 +27,9 @@ function login($id, $password){
     //     return false;
     // }
 }
-function addUser($name, $password, $id, $email, $type){
+function addUser($name, $password, $email, $type){
     $conn = getConnection();
-    $sql = "insert into users values ('$name', '$password', '$id', '$email', '$type')";
+    $sql = "insert into users (username, password, email, type) values ('$name', '$password', '$email', '$type')";
     $result = mysqli_query($conn, $sql);
     if($result){
         return true;
@@ -41,7 +41,8 @@ function addUser($name, $password, $id, $email, $type){
 
 function user_info($id){
     $conn = getConnection();
-    $sql = "select * from users where id = '$id'";
+    $sql = "select * from users where user_id = '$id'";
+   
     $result = mysqli_query($conn, $sql);
     // var_dump($result);
 
@@ -79,7 +80,7 @@ function edit_user($idt, $name, $email, $type){
     $conn = getConnection();
     $sql = "UPDATE users
             SET name = '$name', email = '$email', type = '$type'
-            WHERE id = $idt";
+            WHERE user_id = $idt";
     $result = mysqli_query($conn, $sql);
     if($result){
         return true;
