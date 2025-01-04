@@ -27,9 +27,9 @@ function login($username, $password){
     //     return false;
     // }
 }
-function addUser($name, $password, $email, $type){
+function addUser($name, $password, $email, $type, $status = "Active"){
     $conn = getConnection();
-    $sql = "insert into users (username, password, email, type) values ('$name', '$password', '$email', '$type')";
+    $sql = "insert into users (username, password, email, type, status) values ('$name', '$password', '$email', '$type', '$status')";
     $result = mysqli_query($conn, $sql);
     if($result){
         return true;
@@ -52,9 +52,15 @@ function user_info($id){
 }
 
 
-function show_users(){
+function show_users($status_filter){
     $conn = getConnection();
-    $sql = "select * from users";
+    if ($status_filter === 'Active') {
+        $sql = "select * from users where status = 'Active'";
+    } elseif ($status_filter === 'Inactive') {
+        $sql = "select * from users where status = 'Inactive'";
+    } else {
+        $sql = "select * from users";
+    }
     $result = mysqli_query($conn, $sql);
     return $result;
     // while($row = mysqli_fetch_assoc($result)){
@@ -66,7 +72,7 @@ function show_users(){
 
 function delete_user($idt){
     $conn = getConnection();
-    $sql = "DELETE FROM users WHERE id='$idt'";
+    $sql = "DELETE FROM users WHERE user_id='$idt'";
     $result = mysqli_query($conn, $sql);
     if($result){
         return true;
@@ -76,10 +82,10 @@ function delete_user($idt){
     }
 }
 
-function edit_user($idt, $name, $email, $type){
+function edit_user($idt, $name, $email, $type, $status){
     $conn = getConnection();
     $sql = "UPDATE users
-            SET name = '$name', email = '$email', type = '$type'
+            SET username = '$name', email = '$email', type = '$type', status = '$status'
             WHERE user_id = $idt";
     $result = mysqli_query($conn, $sql);
     if($result){

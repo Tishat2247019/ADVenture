@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "CustomFont1"; /* Name your font family */
+  src: url("../font/Schnyder\ L\ Demi.otf"); /* Locate the .ttf file within your directory*/
+}
+@font-face {
+  font-family: "CustomFont2"; /* Name your font family */
+  src: url("../font/Satoshi-Variable.ttf"); /* Locate the .ttf file within your directory*/
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -93,14 +102,6 @@ a {
 .footer {
   grid-area: footer_area;
   /* background-color: aquamarine; */
-}
-@font-face {
-  font-family: "CustomFont1"; /* Name your font family */
-  src: url("../font/Schnyder\ L\ Demi.otf"); /* Locate the .ttf file within your directory*/
-}
-@font-face {
-  font-family: "CustomFont2"; /* Name your font family */
-  src: url("../font/Satoshi-Variable.ttf"); /* Locate the .ttf file within your directory*/
 }
 
 .container {
@@ -305,20 +306,20 @@ form {
   font-size: 26px; /* Match font size */
 }
 
-.form_container .inputbox input[type="submit"]:hover {
-  /* background-image: radial-gradient(
+/* .form_container .inputbox input[type="submit"]:hover {
+  background-image: radial-gradient(
       circle farthest-corner at 10% 20%,
       rgb(46, 32, 32) 0%,
       rgba(243, 252, 166, 1) 90%
-    ); */
-  /* background-color: #0056b3; */
-  /* background: linear-gradient(
+    );
+  background-color: #0056b3;
+  background: linear-gradient(
     245.59deg,
     #c3d2c6 0%,
     #a8eda8 28.53%,
     #ffffff 75.52%
-  ); */
-}
+  );
+} */
 
 .inputbox input:focus ~ label,
 .inputbox input:valid ~ label {

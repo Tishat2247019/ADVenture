@@ -12,5 +12,6 @@ else{
 }
 ?>
 
-<a href="../view/view_users.php?id=<?php echo $idd ?>"> Go Back</a>
+<a href="../view/tishat_features/manage_users/view_users.php?id=<?php echo $idd ?>"> Go Back</a>
+
 

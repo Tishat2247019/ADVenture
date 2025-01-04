@@ -39,19 +39,19 @@
             <div class="header">
                 <div class="logo_left">
                     <div class="ad">
-                        <img src="./SVG/ad.svg" alt="">
+                        <img src="./asset/SVG/ad.svg" alt="">
                     </div>
                     <div class="adventure">
-                        <img src="./SVG/adventure.svg" alt="">
+                        <img src="./asset/SVG/adventure.svg" alt="">
                     </div>
                 </div>
 
 
                 <div class="buttons_header">
-                    <a href="./signup/signup.html">
+                    <a href="./view/opi_features/auth_feature/signup.html">
                         <button>SIGN UP</button>
                     </a>
-                    <a href="./signin/signin.html">
+                    <a href="./view/opi_features/auth_feature/signin.html">
                         <button>SIGN IN</button>
                     </a>
                 </div>
@@ -62,15 +62,14 @@
                     <h1 class="connect">Connect, Engage, and Grow with <span>personalized advertising</span></h1>
                 </div>
             </div>
-            <div class="right"></div>
             <div class="middle">
                 <?php    while ($data = mysqli_fetch_assoc($result)) {
                     $id = $data['user_id'];
-                     $sql = "select * from users where user_id = '$id'";
-                     $result1 = mysqli_query($db, $sql);
-                     // var_dump($result);
-                     $row = mysqli_fetch_assoc($result1);
-                      ?>
+                    $sql = "select * from users where user_id = '$id'";
+                    $result1 = mysqli_query($db, $sql);
+                    // var_dump($result);
+                    $row = mysqli_fetch_assoc($result1);
+                    ?>
                 <div class="post">
                     <div class="adv_info_container">
                         <img src="./asset/images/profile_pics/<?php echo $row['profile_pic']; ?>" alt="">
@@ -88,14 +87,32 @@
                         <h1>AD Description</h1>
                         <p><?php echo $data['ad_description']  ?></p>
                         <h1> Contact Information
-                        </h1>
-                        <p>Email:<?php echo $data['email']  ?></p>
-                        <p>Phone:<?php echo $data['phone']  ?></p>
+                            </h1>
+                            <p>Email:<?php echo $data['email']  ?></p>
+                            <p>Phone:<?php echo $data['phone']  ?></p>
+                        </div>
                     </div>
-                </div>
-                <?php
+                    <?php
                 }
                 ?>
+            </div>
+            <div class="right">
+            <div class="category_container">
+                    <div class="text_container_cat">
+                        <h1>Browse <span><img src="./asset/SVG/white_ad.svg" alt="" >
+                        </span>by Category </h1>
+                    </div>
+                    <ul>
+                        <li><a href=""><img src="./asset/images/home_page_icons/education.png" alt="">Education</a></li>
+                        <li><a href=""><img src="./asset/images/home_page_icons/electronics.png" alt="">electronics</a></li>
+                        <li><a href=""><img src="./asset/images/home_page_icons/mobile.png" alt="">Mobiles & Tablets</a></li>
+                        <li><a href=""><img src="./asset/images/home_page_icons/agriculture.png" alt="">Agriculture</a></li>
+                        <li><a href=""><img src="./asset/images/home_page_icons/property.png" alt="">Property</a></li>
+                        <li><a href=""><img src="./asset/images/home_page_icons/living.png" alt="">Daily Living</a></li>
+                        <li><a href=""><img src="./asset/images/home_page_icons/jobs.png" alt="">Jobs</a></li>
+                        <li><a href=""><img src="./asset/images/home_page_icons/diverse.png" alt="">Diverse</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="footer"></div>
         </div>

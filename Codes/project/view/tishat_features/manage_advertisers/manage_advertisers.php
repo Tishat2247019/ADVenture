@@ -5,13 +5,15 @@
         header('location: ../../../signin/signin.html'); 
     }
     $idd = $_REQUEST['id'];
-    $result = show_users();
+    $status_filter = isset($_GET['status']) ? $_GET['status'] : 'all';
+    $result = show_users($status_filter);
       // while($row = mysqli_fetch_assoc($result)){
     //     echo "<br>";
     //     print_r($row);
     // }
     $user_info = user_info($idd);
     $name = $user_info['username'];
+    $profile_pic = $user_info['profile_pic'];
 ?>
 <html>
 <html>
@@ -186,12 +188,15 @@
             </div>
             <div class="right">
                 <div class='all_user_container'>
-                <table border=1 cellspacing="0" align="center" width="50%">
-            <tr align="center">
+                <div class="table_container">
+                <table  cellspacing="0"  class="user_table">
+                <tr  align="center">
                 <th>ID</th>
+                <th>Profile Pic</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>User Type</th>
+                <th>Status</th>
                 <th colspan="2">Action</th>
                 
             </tr>
@@ -203,23 +208,30 @@
                 // }
             ?>
             <tr align="center">
-                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['user_id']; ?></td>
+                <td><img src="../../../asset/images/profile_pics/<?php if($row['profile_pic'] != "") {
+    echo $row['profile_pic'];
+} else {
+    echo "no_profile_pic.png";
+}
+ ?>" alt="" > </td>
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['type']; ?></td>
-                <td>
-                    <button>
-                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> EDIT </a> 
-                    </button>
+                <td><button id="status-<?php echo $row['status']; ?>"><?php echo $row['status']; ?></button></td>
+                <td>    
+                        <a href="../manage_users/edit_users.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> <img src="../../../asset/images/view_users_icons/edit2.ico" alt=""> </a> 
+                    
                 </td>
                 <td>
-                    <button>
-                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> DELETE </a> 
-                    </button>
+                    
+                        <a id="delete_user" href="../../../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> <img src="../../../asset/images/view_users_icons/delete.ico" alt=""> </a> 
+                   
                 </td>
                 <?php }} ?>
             </tr>
                 </table>
+                </div>
                 </div>
             </div>
             <div class="footer"></div>

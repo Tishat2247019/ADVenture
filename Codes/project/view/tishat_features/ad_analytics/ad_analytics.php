@@ -132,11 +132,13 @@
                             </div>
                             <div class="filter_options_container">
                                 <select name="" id="">
-                                    <option value="Technology">Technology</option>
-                                    <option value="Technology">Education</option>
-                                    <option value="Technology">Corporate</option>
-                                    <option value="Technology">Science</option>
-                                    <option value="Technology">Nature</option>
+                                    <option value="electronic">Electronics</option>
+                                    <option value="education">Education</option>
+                                    <option value="mobile">Mobiles</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="property">Property</option>
+                                    <option value="daily_living">Daily Living</option>
+                                    <option value="diverse">Diverse</option>
                                 </select>
                             </div>
                         </div>
@@ -146,12 +148,15 @@
             </div>
             <div class="right">
                 <div class='all_user_container'>
-                <table border=1 cellspacing="0" align="center" width="50%">
-            <tr align="center">
+                <div class="table_container">
+                <table  cellspacing="0"  class="user_table">
+                <tr  align="center">
                 <th>ID</th>
+                <th>Profile Pic</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>User Type</th>
+                <th>Status</th>
                 <th colspan="2">Action</th>
                 
             </tr>
@@ -163,23 +168,26 @@
                 // }
             ?>
             <tr align="center">
-                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['user_id']; ?></td>
+                <td><img src="../../../asset/images/profile_pics/<?php echo $row['profile_pic']; ?>" alt="" > </td>
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['type']; ?></td>
-                <td>
+                <td><button id="status-<?php echo $row['status']; ?>"><?php echo $row['status']; ?></button></td>
+                <td>    
                     <button>
-                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> EDIT </a> 
+                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> EDIT </a> 
                     </button>
                 </td>
                 <td>
                     <button>
-                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['id']?>"> DELETE </a> 
+                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> DELETE </a> 
                     </button>
                 </td>
                 <?php }} ?>
             </tr>
                 </table>
+                </div>
                 </div>
             </div>
             <div class="footer"></div>

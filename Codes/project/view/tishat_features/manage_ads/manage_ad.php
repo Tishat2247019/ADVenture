@@ -1,15 +1,19 @@
 <?php
     session_start();
     require_once("../../../model/usermodel.php");
+    require_once("../../../model/admodel.php");
+
     if(!isset($_SESSION['status'])){
         header('location: login.html'); 
     }
     $idd = $_REQUEST['id'];
-    $result = show_users();
+    //$status_filter = isset($_GET['status']) ? $_GET['status'] : 'all';
+   // $result = show_users($status_filter);
       // while($row = mysqli_fetch_assoc($result)){
     //     echo "<br>";
     //     print_r($row);
     // }
+    $result = show_ads();
     $user_info = user_info($idd);
     $name = $user_info['username'];
 ?>
@@ -99,8 +103,7 @@
 
                 </div>
             </div>
-            <div class="right">
-            </div>
+            
             <div class="middle">
                 <form action="">
                     <div class="ad_manage_contatiner">
@@ -123,11 +126,13 @@
                             </div>
                             <div class="filter_options_container">
                                 <select name="" id="">
-                                    <option value="Technology">Technology</option>
-                                    <option value="Technology">Education</option>
-                                    <option value="Technology">Corporate</option>
-                                    <option value="Technology">Science</option>
-                                    <option value="Technology">Nature</option>
+                                    <option value="electronic">Electronics</option>
+                                    <option value="education">Education</option>
+                                    <option value="mobile">Mobiles</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="property">Property</option>
+                                    <option value="daily_living">Daily Living</option>
+                                    <option value="diverse">Diverse</option>
                                 </select>
                             </div>
                         </div>
@@ -162,6 +167,59 @@
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="right">
+                <div class="manage_ad_container">
+                <div class="table_container">
+                <table  cellspacing="0"  class="ad_table">
+                <tr  align="center">
+                <th>AD ID</th>
+                <th>Adv Name</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Ad Photo</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th colspan="2">Action</th>
+                
+            </tr>
+            <?php 
+                 while($row = mysqli_fetch_assoc($result)){
+                $adv_id = $row['user_id'];
+                $user_info =  user_info($adv_id);
+                $adv_name = $user_info['username']
+                //echo "<br>";
+                //print_r($row);
+                // }
+            ?>
+            <tr align="center">
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $adv_name ?> </td>
+                <td><?php echo $row['ad_title']; ?></td>
+                <td id="ad_description"><?php echo $row['ad_description']; ?></td>
+                <td>
+                    <div class="ad_photo_container">
+
+                        <img src="../../../asset/images/ad_pics/<?php echo $row['ad_photo']; ?>" alt="" >
+                    </div>
+                 </td>
+                <td><?php echo $row['price']; ?></td>
+                <td>Category</td>
+                
+                <td>    
+                        <a href="edit_users.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> <img src="../../../asset/images/view_users_icons/edit2.ico" alt=""> </a> 
+                    
+                </td>
+                <td>
+                    
+                        <a id="delete_user" href="../../../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> <img src="../../../asset/images/view_users_icons/delete.ico" alt=""> </a> 
+                   
+                </td>
+                <?php } ?>
+            </tr>
+                </table>
+                </div>
+                </div>
             </div>
             <div class="footer"></div>
         </div>

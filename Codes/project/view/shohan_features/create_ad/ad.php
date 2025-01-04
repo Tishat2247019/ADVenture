@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form action="ad_check.php" method="post" enctype="multipart/form-data" id="crate_ad_form">
+    <form action="../../../controller/ad_check.php" method="post" enctype="multipart/form-data" id="crate_ad_form">
         <p>upload image</p>
         <input type="file" name="uploadfile"> <br>
         <p>ad title</p><br>

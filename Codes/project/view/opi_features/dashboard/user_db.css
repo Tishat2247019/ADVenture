@@ -1,11 +1,9 @@
-/* styles.css */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Set body background color and font */
 body {
     background: rgb(180, 58, 58);
     background: linear-gradient(90deg, rgba(180, 58, 58, 0.6) 0%, rgba(253, 70, 29, 0.6) 46%, rgba(252, 176, 69, 0.6) 100%);
@@ -13,8 +11,6 @@ body {
     color: #333;
 }
 
-
-/* Header styling */
 .header {
     display: flex;
     align-items: center;
@@ -23,12 +19,10 @@ body {
     padding: 10px 20px;
 }
 
-/* Logo container */
 .logo_container img {
     max-height: 40px;
 }
 
-/* Welcome section */
 .welcome_menu {
     text-align: center;
     margin-top: 30px;
@@ -39,23 +33,22 @@ body {
     color: #333;
 }
 
-/* User welcome section */
-.welcome_admin {
+.welcome_user {
     text-align: center;
     margin: 20px 0;
 }
 
-.welcome_admin h2 {
+.welcome_user h2 {
     font-size: 1.8em;
     color: #4CAF50;
 }
 
-.welcome_admin .adminname {
+.welcome_user .username {
     color: #00796b;
     font-weight: bold;
 }
 
-
+ 
 .dashboard {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -67,9 +60,10 @@ body {
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 50px;
     text-align: center;
     transition: transform 0.3s;
+    margin-bottom: 20px;
 }
 
 .section:hover {
@@ -88,29 +82,21 @@ body {
     color: #666;
 }
 
-.generate-report {
-    background-color: #007bff;
-    color: white;
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #4CAF50;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
-    transition: background-color 0.3s;
+    font-weight: bold;
 }
 
-.generate-report:hover {
-    background-color: #0056b3;
-}
-
-/* Footer styling */
-.footer {
-    text-align: center;
-    padding: 10px;
-    background-color: black;
-    color: orange;
-}
-
-.footer p {
-    font-size: 0.9em;
+a:hover {
+    text-decoration:underline;
+    color: #2d9130;
 }

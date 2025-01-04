@@ -49,7 +49,7 @@ a {
 }
 
 .page_name {
-  width: 13%;
+  width: 15%;
   height: 80%;
   display: flex;
   align-items: center;
@@ -192,7 +192,9 @@ a {
   grid-area: middle_area;
   position: relative;
   /* overflow-y: scroll; */
-  background-color: rgb(229, 223, 223);
+  /* background-color: rgb(229, 223, 223); */
+  background-color: #cae3bb;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,7 +207,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: left;
-  background-color: rgb(229, 223, 223);
+  /* background-color: rgb(229, 223, 223); */
+  background-color: #cae3bb;
 }
 .middle form .user_manage_contatiner {
   /* border: 1px solid black; */
@@ -243,6 +246,10 @@ a {
   height: 60%;
 }
 
+.search_user_container p {
+  font-size: 0.8vw;
+}
+
 .search_input_container {
   height: 100%;
   display: flex;
@@ -252,6 +259,7 @@ a {
   /* background-color: red; */
 }
 .search_input_container input {
+  width: auto;
   height: 60%;
   border: none;
   padding: 0px 5px;
@@ -268,21 +276,24 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 5px;
+
   /* padding: 5px 20px; */
 }
 
-.user_status_container button {
+.user_status_container a {
   height: 100%;
-  width: 45%;
+  width: 30%;
   border: none;
   background-color: rgb(207, 139, 82);
   cursor: pointer;
-}
-.user_status_container button a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 .user_activity_container {
@@ -332,6 +343,9 @@ a {
 .right {
   grid-area: right_area;
   background-color: rgb(229, 223, 223);
+  /* background-color: #e6e6e6; */
+  background-color: #cae3bb;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -408,25 +422,36 @@ a {
   background-color: #e6e6e6;
   color: black;
 }
-.right .all_user_container .table_container table td button {
-  height: 80%;
-  width: 80%;
-  background-color: rgb(207, 139, 82);
-  border: none;
-  cursor: pointer;
-}
 
 .right .all_user_container .table_container table td img {
   border-radius: 7px;
   height: 75px;
   width: auto;
 }
-.right .all_user_container .table_container table td button a {
+
+.right .all_user_container .table_container table td a {
   text-decoration: none;
+  border-radius: 3px;
   color: black;
-  font-size: 12px;
-  width: 100%;
-  height: 100%;
+  padding: 5px 5px;
+  /* font-size: 12px; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-color: rgb(207, 139, 82); */
+  background-color: #3d703d;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#delete_user {
+  background-color: red;
+}
+
+.right .all_user_container .table_container table td a img {
+  border-radius: 7px;
+  height: 20px;
+  width: auto;
 }
 
 #status-Active {
@@ -434,6 +459,7 @@ a {
   padding: 5px 7px;
   border-radius: 3px;
   font-weight: bold;
+  border: none;
 }
 
 #status-Inactive {
@@ -441,6 +467,7 @@ a {
   padding: 5px 7px;
   border-radius: 3px;
   font-weight: bold;
+  border: none;
 }
 .footer {
   grid-area: footer_area;

@@ -6,16 +6,16 @@
 
     }
     $idd = $_REQUEST['id'];
-    $result = show_users();
+    $status_filter = isset($_GET['status']) ? $_GET['status'] : 'all';
+    $result = show_users($status_filter);
       // while($row = mysqli_fetch_assoc($result)){
     //     echo "<br>";
     //     print_r($row);
     // }
     $user_info = user_info($idd);
-     $name = $user_info['username'];
-     $admin_photo = $user_info['profile_pic'];
+    $name = $user_info['username'];
+    $admin_photo = $user_info['profile_pic'];
 ?>
-<html>
 <html>
 <head>
     <title>View Users Page</title>
@@ -102,7 +102,8 @@
             </div>
             
             <div class="middle">
-                <form action="">
+                <form action="" method="">
+                    <!-- <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/> -->
                     <div class="user_manage_contatiner">
                         <div class="search_container">
                             <div class="search_user_container">
@@ -117,15 +118,9 @@
 
                         <div class="user_status_container">
                            
-                                <button>
-                                    <a href="">Active Users</a>
-                                </button>
-                          
-                            
-                                <button>
-                                    <a href="">Inactive Users</a>
-                                </button>
-                           
+                               <a href="view_users.php?id=<?php echo $idd; ?>&status=Active"> Active Users</a> 
+                               <a href="view_users.php?id=<?php echo $idd; ?>&status=Inactive"> Inactive Users</a>  
+                               <a href="view_users.php?id=<?php echo $idd; ?>"> All Users</a>  
                         </div>
 
                         <div class="user_activity_container">
@@ -147,7 +142,6 @@
                             <a href="">
                             Edit Information
                             </a> </button>
-                            
                         </div>
                     </div>
                 </form>
@@ -175,20 +169,25 @@
             ?>
             <tr align="center">
                 <td><?php echo $row['user_id']; ?></td>
-                <td><img src="../../../asset/images/profile_pics/<?php echo $row['profile_pic']; ?>" alt="" > </td>
+                <td><img src="../../../asset/images/profile_pics/<?php if($row['profile_pic'] != "") {
+    echo $row['profile_pic'];
+} else {
+    echo "no_profile_pic.png";
+}
+ ?>" alt="" > </td>
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['type']; ?></td>
                 <td><button id="status-<?php echo $row['status']; ?>"><?php echo $row['status']; ?></button></td>
                 <td>    
-                    <button>
-                        <a href="edit.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> EDIT </a> 
-                    </button>
+                        
+                <a href="edit_users.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> <img src="../../../asset/images/view_users_icons/edit2.ico" alt=""> </a> 
+                    
                 </td>
                 <td>
-                    <button>
-                        <a href="../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> DELETE </a> 
-                    </button>
+                    
+                        <a id="delete_user" href="../../../model/delete_user.php?id=<?php echo $idd?>&idt=<?php echo $row['user_id']?>"> <img src="../../../asset/images/view_users_icons/delete.ico" alt=""> </a> 
+                   
                 </td>
                 <?php }} ?>
             </tr>
