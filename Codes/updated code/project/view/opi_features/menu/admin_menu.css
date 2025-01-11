@@ -1,0 +1,107 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set body background color and font */
+body {
+    background: rgb(180, 58, 58);
+    background: linear-gradient(90deg, rgba(180, 58, 58, 0.6) 0%, rgba(253, 70, 29, 0.6) 46%, rgba(252, 176, 69, 0.6) 100%);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Main container setup */
+.main_container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Container for content */
+.container {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000;
+    padding: 10px 20px;
+}
+
+/* Logo container */
+.logo_container img {
+    max-height: 40px;
+}
+
+/* Welcome section */
+.welcome_menu {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.welcome_menu h1 {
+    font-size: 2.2em;
+    color: #333;
+}
+
+/* User welcome section */
+.welcome_admin {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.welcome_admin h2 {
+    font-size: 1.8em;
+    color: #4CAF50;
+}
+
+.welcome_admin .adminname {
+    color: #00796b;
+    font-weight: bold;
+}
+
+/* Menu links styling */
+.menu_links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu_links li {
+    margin: 30px 0;
+}
+
+.menu_links a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #4CAF50;
+    padding: 10px 60px;
+    background-color: #e7f5e7;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu_links a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Footer styling */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: orange;
+}
+
+.footer p {
+    font-size: 0.9em;
+}
