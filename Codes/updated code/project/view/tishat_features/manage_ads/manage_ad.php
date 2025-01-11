@@ -1,7 +1,6 @@
 <?php
     session_start();
     require_once("../../../model/usermodel.php");
-    require_once("../../../model/admodel.php");
 
     if(!isset($_SESSION['status'])){
         header('location: login.html'); 
@@ -13,7 +12,6 @@
     //     echo "<br>";
     //     print_r($row);
     // }
-    $result = show_ads();
     $user_info = user_info($idd);
     $name = $user_info['username'];
 ?>
@@ -113,7 +111,7 @@
                                 <p>Search AD</p>
                             </div>
                             <div class="search_input_container">
-                                <input type="text" onkeyup="ad_based_catecogry(event, null, this.value)">
+                                <input type="text" onkeyup="ad_based_catecogry(event,null, this.value)">
                                 <button>search</button>
                             </div>
 
@@ -194,6 +192,12 @@
             <div class="footer"></div>
         </div>
     </div>
+
+    <script>
+        let idd = <?php echo $idd; ?>;  
+        
+    </script>
+
 
     <script src="../../../asset/js/manage_ad.js"></script>
 

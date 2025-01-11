@@ -487,6 +487,8 @@
   right: 10; */
   /* border-radius: 100px; */
   font-size: 0.8vw;
+  border-collapse: collapse;
+  /* box-sizing: border-box; */
 }
 .right .manage_ad_container .table_container table th {
   /* background-color: rgb(180, 180, 180); */
@@ -505,7 +507,13 @@
   height: 100px;
   cursor: pointer;
   font-style: CustomFont2;
+  box-sizing: border-box;
+  /* border: 2px solid black; */
   /* padding: 520px; */
+}
+
+.ad_table tr:hover {
+  border: 2px solid black;
 }
 /* .right .all_user_container .table_container table tr:hover {
   background-color: red;

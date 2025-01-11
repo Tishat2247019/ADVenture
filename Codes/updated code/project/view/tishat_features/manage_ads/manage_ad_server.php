@@ -2,6 +2,7 @@
 
 require_once("../../../model/usermodel.php");
 require_once("../../../model/admodel.php");
+$idd = $_REQUEST['id'];
 
 if(isset($_REQUEST['ad_category'])){
     $ad_category = $_REQUEST['ad_category'];
@@ -26,8 +27,7 @@ if(isset($_REQUEST['ad_category'])){
                 <td>{$row['category']}</td>
                 
                 <td>    
-                        <a href='edit_ad.php?idt={$row['id']}'> <img src='../../../asset/images/view_users_icons/edit2.ico' alt=''> </a> 
-                    
+                        <a href='edit_ad.php?id={$idd}&idt={$row['id']}'> <img src='../../../asset/images/view_users_icons/edit2.ico' alt=''> </a>                     
                 </td>
                 <td>
                     
@@ -77,7 +77,7 @@ if(isset($_REQUEST['search_word'])){
                 <td>{$row['category']}</td>
                 
                 <td>    
-                <a href='edit_ad.php?idt={$row['id']}'> <img src='../../../asset/images/view_users_icons/edit2.ico' alt=''> </a> 
+                <a href='edit_ad.php?id={$idd}&idt={$row['id']}'> <img src='../../../asset/images/view_users_icons/edit2.ico' alt=''> </a> 
                 
                 </td>
                 <td>

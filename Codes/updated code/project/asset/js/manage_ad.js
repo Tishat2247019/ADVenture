@@ -8,9 +8,9 @@ function ad_based_catecogry(event, ad_category_value, search_word) {
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   if (ad_category_value == null) {
-    xhttp.send("search_word=" + search_word);
+    xhttp.send("id=" + idd + "&search_word=" + search_word);
   } else {
-    xhttp.send("ad_category=" + ad_category_value);
+    xhttp.send("id=" + idd + "&ad_category=" + ad_category_value);
   }
   xhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
@@ -43,5 +43,5 @@ function ad_based_catecogry(event, ad_category_value, search_word) {
 }
 
 window.onload = function () {
-  ad_based_catecogry(event, "All");
+  ad_based_catecogry(event, "All", null);
 };
